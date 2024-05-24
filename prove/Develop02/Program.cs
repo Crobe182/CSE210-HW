@@ -4,16 +4,19 @@ public class Program
 {
     static void Main(string[] args)
     {
-           Journal journal = new Journal();
-           journal.DisplayMenu();
+            Journal journal = new Journal();
+
+
+            journal.DisplayJournalMenuOptions();
     }
 
      public void DisplayMenu()
     {
-        bool run = true;
-
-        while (run == true)
+       
         {
+            bool run = true;
+
+            while (run == true)
 
             Console.Write("What would you like to do? \n1.Write \n2.Display \n3.Load \n4.Save\n 5.Quit\n");
 
@@ -28,9 +31,9 @@ public class Program
             {
                 Console.WriteLine("What file would you like to load from? ");
 
-                strin loadFromFile = Console.ReadLine();
-                Journal.LoadEntries(loadFromFile);
-                DisplayEntries();
+                string loadFromFile = Console.ReadLine();
+             //   journal.LoadEntries(loadFromFile);
+             //   Journal.DisplayEntries();
             }
             else if (choice == "3")
             {
