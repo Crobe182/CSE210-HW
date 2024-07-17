@@ -1,14 +1,20 @@
-class Activity
+public class Activity
 {
-    string _title;
+    private string _title;
 
-    int time;
+    private int _time;
 
-    List<string> prompts;
+    private List<string> _prompts;
 
-    string prompt;
+    private string _prompt;
 
-    bool activityDone;
+    private string _startMessage;
+
+    private string _description;
+
+    private string _endMessage;
+
+    private bool _activityDone;
 
     public Activity(string title)
     {
@@ -19,15 +25,19 @@ class Activity
     {
         Console.Write($"How long would you like to do the {_title} activity? (In Seconds): ");
         string timeString = Console.ReadLine();
-        time = int.Parse(timeString);
+        _time = int.Parse(timeString);
     }
 
     string getPrompt()
     {
 
-        return prompt;
+        return _prompt;
     }    
 
+    void pause()
+    {
+        Thread.Sleep(1000);
+    }
     void pauseAnimation()
     {
         
