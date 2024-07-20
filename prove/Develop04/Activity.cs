@@ -4,7 +4,7 @@ public class Activity
 
     private int _time;
 
-    private List<string> _prompts;
+    private List<string> _prompts = new();
 
     private string _prompt;
 
@@ -21,27 +21,120 @@ public class Activity
         _title = title;
     }
 
-    void enterTime()
+    public string getTitle()
     {
-        Console.Write($"How long would you like to do the {_title} activity? (In Seconds): ");
+        return _title;
+    }
+
+    public void setDescirption(string description)
+    {
+        _description = description;
+    }
+
+    public string getDescription()
+    {
+        return _description;
+    }
+
+    public void setTime()
+    {
+        Console.Write($"How long would you like to do the {getTitle()} activity? (In Seconds): ");
+
         string timeString = Console.ReadLine();
+
         _time = int.Parse(timeString);
+
+        Console.Clear();
     }
 
-    string getPrompt()
+    public int getTime()
     {
+        return _time;
+    }
 
+    public void setPrompts(string listItem)
+    {
+        _prompts.Add(listItem);
+    }
+
+    public void setPrompt()
+    {
+        Random random = new Random();
+
+        int randomIndex = random.Next(0, _prompts.Count);
+
+        _prompt = _prompts[randomIndex];
+    } 
+
+    public string getPrompt()
+    {
         return _prompt;
-    }    
+    }   
 
-    void pause()
+    public void startMessage()
     {
-        Thread.Sleep(1000);
+        Console.WriteLine($"{getTitle()} Activity selected. \n\n");
+
+        setTime();
+
+       _startMessage = $"Welocome to the {getTitle()} Activity. \nIn this activity you will {getDescription()} \nThis Acitivy will last for {getTime()} seconds. \n\nThe activity will begin shortly.";
+
+       Console.WriteLine(_startMessage);
+
+       pauseAnimation();
+
+       pauseAnimation();
+
+       Console.Clear();
     }
-    void pauseAnimation()
+
+    public void endMessage()
+        {
+            Console.WriteLine($"Well done! youe have completed the {getTime()} seconds long {getTitle()} Activity. \nYou did a great job! \nReturning to menu, please wait");
+
+            pauseAnimation();
+
+            Console.Clear();
+        }
+
+    public void pause(int time)
     {
-        
+        //time in milliseconds
+        Thread.Sleep(time);
     }
+    public void pauseAnimation()
+    {
+        DateTime startTime = DateTime.Now;
 
+        DateTime endTime = startTime.AddSeconds(5);
 
+        while (DateTime.Now <= endTime)
+        {
+             Console.Write("<");
+
+            pause(250);
+
+            Console.Write("\b \b");
+
+            Console.Write("^");
+
+            pause(250);
+
+            Console.Write("\b \b");
+
+            Console.Write(">");
+
+            pause(250);
+
+            Console.Write("\b \b");
+            
+            Console.Write("v");
+
+            pause(250);
+
+            Console.Write("\b \b");    
+        } 
+
+    }
+    
 }
