@@ -2,7 +2,7 @@ using System;
 
 public class LongTermGoal : Goal 
 {
-    public LongTermGoal() :base("LongTermGoal")
+    public LongTermGoal() :base("LongTermGoal", "goalName")
     {
 
     }

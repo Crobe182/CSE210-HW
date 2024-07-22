@@ -22,12 +22,9 @@ abstract public class Goal
 
     private bool _complete;
 
-    public Goal(string goalType)
+    public Goal(string goalType, string goalName)
     {
-        Console.WriteLine("Enter Goal Name:");
-
-        string goalName = Console.ReadLine();
-
+        
         _goalType = goalType;
 
         _title = goalName;

@@ -2,7 +2,7 @@ using System;
 
 public class EternalGoal : Goal 
 {
-    public EternalGoal() :base("EternalGoal")
+    public EternalGoal() :base("EternalGoal", "goalName")
     {
 
     }

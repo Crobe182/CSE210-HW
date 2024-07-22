@@ -2,7 +2,7 @@ using System;
 
 public class ShortTermGoal : Goal 
 {
-    public ShortTermGoal() :base("ShortTermGoal")
+    public ShortTermGoal() :base("ShortTermGoal", "goalName")
     {
 
     }
